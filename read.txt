@@ -1,3 +1,0 @@
-npm init
-dosyaları oluşturma
-npm i mongoose jsonwebtoken bcryptjs
