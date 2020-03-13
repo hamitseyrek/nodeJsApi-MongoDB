@@ -7,6 +7,8 @@ const verifyToken = require('./verifyToken');
 const jwt = require('jsonwebtoken');
 const config = require('../config');
 
+const noteController = require('../controllers/noteController');
+
 router.post("/signup", async (req, res) => {
     try {
         const { username, email, password } = req.body;
@@ -34,6 +36,15 @@ router.post("/signup", async (req, res) => {
     }
 });
 
+router.route("/notes")
+    .get(noteController.index)
+    .post(noteController.new)
+
+router.route("/note/:id")
+    .get(noteController.view)
+    .put(noteController.update)
+    .delete(noteController.delete)
+
 router.post("/signin", async (req, res) => {
     try {
         const user = await User.findOne({ email: req.body.email });
@@ -53,8 +64,15 @@ router.post("/signin", async (req, res) => {
         res.status(500).send("Oturum açılırken hata oluştu");
     }
 });
+
+router.get("/dashboard", (req, res) => {
+    res.json("dashboard");
+})
+
 router.get("/logout", function (req, res) {
     res.status(200).send({ auth: false, token: null });
 });
+
+
 
 module.exports = router;
