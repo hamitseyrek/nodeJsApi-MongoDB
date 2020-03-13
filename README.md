@@ -34,3 +34,8 @@ Oluşturulan servisler şu şekildedir.
 
 Bu RestFul API başka bir flutter mobil uygulamada (https://github.com/hmtsyrk/flutter_RestFulApi.git ) kullanılmıştır.
 
+
+*************************************
+Hamit SEYREK
+Bilgisayar Mühendisi
+
