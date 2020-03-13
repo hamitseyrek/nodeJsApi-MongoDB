@@ -16,10 +16,10 @@ router.post("/signup", async (req, res) => {
         const user = new User({
             username,
             email,
-            password,
+            password
         });
 
-        user.password = await user.e.encryptPassword(password);
+        user.password = await user.encryptPassword(password);
         await user.save();
 
         const token = jwt.sign({

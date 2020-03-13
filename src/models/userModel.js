@@ -5,6 +5,10 @@ const userSchema = new Schema({
     username: String,
     email: String,
     password: String,
+    created_at: {
+        type: Date,
+        default: Date.now
+    }
 });
 
 userSchema.method('encryptPassword', function (password) {
